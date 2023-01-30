@@ -40,7 +40,7 @@ def analyze_github_profile(profile):
     return message
 
 # Scrape the user's Github profile information
-github_profile = scrape_github_data("eserozvataf")
+github_profile = scrape_github_data("yagcioglutoprak")
 
 # Analyze the user's Github profile and generate suggestions
 suggestions = analyze_github_profile(github_profile)
