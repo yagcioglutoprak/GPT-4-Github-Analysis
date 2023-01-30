@@ -34,7 +34,7 @@ Example usage:
 ```python
 github_profile = scrape_github_data("yagcioglutoprak")
 suggestions = analyze_github_profile(github_profile)
-print(suggestions)
+print(suggestions)```
 
 
 
