@@ -3,7 +3,7 @@ import openai
 from bs4 import BeautifulSoup
 
 # Set up authentication with the OpenAI API
-openai.api_key = "openai_api_key"
+openai.api_key = "api_key"
 
 # Define a function to scrape relevant data from Github
 def scrape_github_data(username):
@@ -39,15 +39,14 @@ def analyze_github_profile(profile):
     print(prompt)
     return message
 
+# Get the Github username from user input
+username = input("Enter your Github username: ")
+
 # Scrape the user's Github profile information
-github_profile = scrape_github_data("yagcioglutoprak")
+github_profile = scrape_github_data(username)
 
 # Analyze the user's Github profile and generate suggestions
 suggestions = analyze_github_profile(github_profile)
 
 # Display the results to the user
-
-
-
 print(suggestions)
-
