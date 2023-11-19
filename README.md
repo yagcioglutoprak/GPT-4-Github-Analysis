@@ -1,6 +1,6 @@
 ## Welcome to the Github Scraper and Analyzer!
 
-This code allows you to scrape relevant information from a Github user's profile and analyze it using the GPT-3 API to suggest real open-source projects they could contribute to. Let's dive into how it works!
+This code allows you to scrape relevant information from a Github user's profile and analyze it using the GPT-4 API to suggest real open-source projects they could contribute to. Let's dive into how it works!
 
 <img width="607" alt="Screenshot 2023-01-30 at 08 46 32" src="https://user-images.githubusercontent.com/40343443/215417744-a6b64937-a4a8-4c3d-8b18-f640c981c537.png">
 
