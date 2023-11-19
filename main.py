@@ -23,20 +23,21 @@ def scrape_github_data(username):
 # Define a function to analyze the user's Github profile with the OpenAI API
 def analyze_github_profile(profile):
     print(profile)
-    model_engine = "text-davinci-003"
+    model_engine = "gpt-4-1106-preview"  # Update the model engine here
     
-    # Use prompt engineering to provide context and specificity to the API
-    prompt = (f"Analyze the Github profile of {profile['username']} including their description '{profile['description']}' and suggest a interesting,real open source projects they could contribute to based on their repositories {profile['repositories']} and contributions {profile['contributions']}. only prompt real projects !. write list. give interesting and unique repos")
-    completions = openai.Completion.create(
-        engine=model_engine,
-        prompt=prompt,
-        max_tokens=1024,
-        n=1,
-        stop=None,
-        temperature=0.5,
+    # Create the structured input for a chat query
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant offering project suggestions for GitHub users."},
+        {"role": "user", "content": f"Analyze the Github profile of {profile['username']} which includes their description and suggest interesting, real open source projects they could contribute to based on their repositories {profile['repositories']} and contributions {profile['contributions']}. Only suggest real and currently active projects that could benefit from this user's contributions. List some unique and engaging repos."}
+    ]
+    
+    response = openai.ChatCompletion.create(
+        model=model_engine,
+        messages=messages,
+        max_tokens=256,  # Adjusted max_tokens as the new model is more efficient
     )
-    message = completions.choices[0].text
-    print(prompt)
+    message = response.choices[0]['message']['content']
+    print("Prompt:\n", messages[-1]["content"])  # To print the last user query
     return message
 
 # Get the Github username from user input
